@@ -115,5 +115,23 @@ def swissPairings():
         id2: the second player's unique id
         name2: the second player's name
     """
-    return None
+    swiss_pairings = []
 
+    standings = playerStandings()
+    print standings
+
+    connection = connect()
+    c = connection.cursor()
+    c.execute("SELECT * FROM player;")
+    players = c.fetchall()
+    count = 0
+    for x in range(0, len(players), 2):
+        print "X is: %s" % x
+        print players[x]
+        curr_player = players[x]
+        next_player = players[x+1]
+        swiss_pairings.append((curr_player[0], curr_player[1], next_player[0],
+next_player[1]))
+
+    print "Pairings are: %s" % swiss_pairings
+    return swiss_pairings 
