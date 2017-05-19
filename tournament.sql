@@ -10,9 +10,9 @@
 -- You can write comments in this file by starting them with two dashes, like
 -- these lines here.
 
+DROP DATABASE IF EXISTS tournament;
 
 CREATE DATABASE tournament;
-ALTER DATABASE tournament OWNER TO ubuntu;
 
 \connect tournament
 
@@ -20,23 +20,17 @@ ALTER DATABASE tournament OWNER TO ubuntu;
 -- PLAYER table
 --
 CREATE TABLE player (
-	id SERIAL,
+	id SERIAL primary key,
 	name text NOT NULL,
 	created timestamp WITH time zone NOT NULL DEFAULT now()
 );
-
-ALTER TABLE player OWNER to ubuntu;
 
 --
 -- MATCH table
 --
 CREATE TABLE match (
-	id SERIAL,
-	winner integer NOT NULL,
-	loser integer NOT NULL,
+	id SERIAL primary key,
+	winner integer references player(id) NOT NULL,
+	loser integer references player(id) NOT NULL,
 	match_date timestamp WITH time zone NOT NULL DEFAULT now()
 );
-
-ALTER TABLE match OWNER to ubuntu;
-
-
