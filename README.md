@@ -6,30 +6,30 @@ The following files are contained in this project:
 * **tournament.sql** - The DB Schema for our Tournament Project
     * Defines the following tables:
 	  1. Player
-	    * Takes a 'name' text value to create Record with timestamp
+		  * Takes a 'name' text value to create Record with timestamp
 	  2. Match
-	    * Takes 2 player IDs as foreign keys to track winners/users with
+		  * Takes 2 player IDs as foreign keys to track winners/users with
 
 * **tournament.py** - Main implementation for Tournament Pairings
 	* Functions include:
 	  1. connect():
-	    * Obtains a PostgreSQL connection using psycopg2 python library
+		  * Obtains a PostgreSQL connection using psycopg2 python library
 	  2. close_connection()
-	    * Closes the PostgreSQL connection
+		  * Closes the PostgreSQL connection
 	  3. deleteMatches()
-	    * Removes all the Match Records from the tournament
+		  * Removes all the Match Records from the tournament
 	  4. deletePlayers()
-	    * Removes all the Player Records from the tournament DB
+		  * Removes all the Player Records from the tournament DB
 	  5. countPlayers()
-	    * Returns a count of all the players currently registered
+		  * Returns a count of all the players currently registered
 	  6. registerPlayer(name)
-	    * Takes a name string and adds a Player record to the database
+		  * Takes a name string and adds a Player record to the database
 	  7. playerStandings()
-	    * Returns a list of players and their win records, sorted by most wins
+		  * Returns a list of players and their win records, sorted by most wins
 	  8. reportMatch(winner, loser)
-	    * Records a match result in the database. Takes in 2 player objects
+		  * Records a match result in the database. Takes in 2 player objects
 	  9. swissPairings()
-		* The main Swiss Pairing logic. Returns players list for match pairings
+		  * The main Swiss Pairing logic. Returns players list for match pairings
 
 * **tournament_test.py** - supplied Unit Tests for Testing
 	* Iterates through and tests against each of the tournament.py functions
@@ -73,3 +73,6 @@ psql
 select * from player;
 select * from match;
 ```
+
+#### License
+Licensed for use under the MIT License
